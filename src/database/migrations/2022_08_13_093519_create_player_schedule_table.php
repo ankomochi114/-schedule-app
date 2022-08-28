@@ -14,10 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('player_schedule', function (Blueprint $table) {
-            $table->id();
             $table->foreignId('player_id')->constrained();
             $table->foreignId('schedule_id')->constrained();
-            $table->timestamps();
+            $table->unique(['player_id', 'schedule_id']);
         });
     }
 
